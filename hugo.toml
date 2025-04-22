@@ -1,37 +1,68 @@
 # --- CONFIGURATION DE BASE ---
-baseURL = "https://wheelr00t.github.io/wheelroot/" # VÉRIFIE CETTE URL !
-languageCode = "fr-fr"
-title = "Mon Blog Cyber" # METS TON VRAI TITRE
+baseURL = "https://wheelr00t.github.io/wheelroot/" # VÉRIFIE ENCORE CETTE URL !
+title = "Wheelr00t - Blog Cyber" # METS TON VRAI TITRE
 theme = "LoveIt"
+# Définir explicitement la langue par défaut (même s'il n'y en a qu'une)
+defaultContentLanguage = "fr"
+# Désactiver explicitement les langues CJK si non utilisées (thèmes vérifient parfois)
+hasCJKLanguage = false
 
-# --- PARAMS (avec corrections) ---
+# --- Configuration de Langue (même pour une seule langue) ---
+[languages]
+  [languages.fr]
+    languageName = "Français"
+    languageCode = "fr-fr"
+    weight = 1
+    # Les paramètres suivants sont hérités du niveau racine ([params])
+    # mais on pourrait les surcharger ici si besoin pour une langue spécifique.
+    # title = "Mon Titre en Français"
+    # [languages.fr.params]
+    #  description = "Description en Français"
+
+# --- PARAMS ---
 [params]
-  # -- Correction pour Erreur 1 (seo.html) --
-  # 'author' doit être une table (objet) avec une clé 'name'
+  # Auteur (structure correcte)
   [params.author]
-    name = "Wheelr00t" # METS TON NOM/PSEUDO ICI
+    name = "Wheelr00t" # METS TON NOM/PSEUDO
 
   description = "Description de mon blog cyber" # METS TA DESCRIPTION
 
-  # -- Ajout pour aider avec Erreur 2 (header.html) --
-  # Définir la structure attendue pour le titre dans l'en-tête
-  [params.header.title]
-    # Tu peux mettre un logo plus tard ici si tu veux
-    # logo = "/images/logo.png"
-    name = "Wheelr00t Blog" # METS LE TEXTE VOULU POUR L'ENTETE
+  # Header (structure plus complète)
+  [params.header]
+    desktopMode = "fixed" # ou "normal", "auto"
+    mobileMode = "auto" # ou "normal", "fixed"
+    [params.header.title]
+      # logo = "" # Si tu as un logo
+      name = "Wheelr00t Blog" # Texte affiché en haut
+      # pre = ""
+      # post = ""
 
-# --- Active les taxonomies de base ---
+# --- MENUS (Ajout d'une section minimale valide) ---
+[menu]
+  # Décommente et adapte ces lignes quand tu auras du contenu
+  # [[menu.main]]
+  #   identifier = "posts"
+  #   name = "Articles"
+  #   url = "/posts/"
+  #   weight = 1
+  # [[menu.main]]
+  #   identifier = "about"
+  #   name = "À Propos"
+  #   url = "/about/"
+  #   weight = 2
+
+# --- TAXONOMIES ---
 [taxonomies]
   category = "categories"
   tag = "tags"
 
-# --- MINIMUM pour la recherche intégrée de LoveIt ---
+# --- OUTPUTS ---
 [outputs]
-  home = ["HTML", "RSS", "JSON"] # Nécessaire pour la recherche
+  home = ["HTML", "RSS", "JSON"]
 
-# --- Options de rendu (peuvent aider à éviter d'autres erreurs) ---
+# --- MARKUP ---
 [markup]
   [markup.highlight]
-    noClasses = false # Important pour LoveIt
+    noClasses = false
   [markup.goldmark.renderer]
-    unsafe = true # Permet HTML brut dans Markdown si besoin
+    unsafe = true
