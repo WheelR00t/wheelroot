@@ -1,4 +1,4 @@
-# Nom du Workflow affiché sur GitHub Actions
+# Nom du Workflow affiché sur GitHub Actionss
 name: Deploy Hugo site to Pages
 
 # Déclencheurs : quand exécuter ce workflow
