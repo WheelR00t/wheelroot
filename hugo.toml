@@ -3,51 +3,86 @@ baseURL = "https://wheelr00t.github.io/wheelroot/"
 title = "Wheelr00t - Blog Cyber"
 theme = "LoveIt"
 
-# --- CONFIGURATION DE LANGUE ---
+# --- PARAMÈTRES DE LANGUE ---
+languageCode = "fr-fr"
 defaultContentLanguage = "fr"
+disableLanguages = ["en", "zh-cn"]  # Désactive explicitement les autres langues
 hasCJKLanguage = false
-defaultContentLanguageInSubdir = false
 
-[languages]
-  [languages.fr]
-    weight = 1
-    title = "Wheelr00t - Blog Cyber"
-    languageCode = "fr-fr"
+# --- PARAMÈTRES GÉNÉRAUX ---
+paginate = 12
+enableEmoji = true
+enableGitInfo = false  # Désactive les fonctionnalités Git si pas nécessaires
+enableRobotsTXT = true
+copyright = "Wheelr00t"
 
-# --- PARAMS ---
+# --- PARAMÈTRES DU THÈME ---
 [params]
-  # LoveIt version
-  version = "0.2.X"
-  description = "Description de mon blog cyber"
+  # Version du thème LoveIt (ancienne version plus compatible)
+  version = "0.2.10"
+  description = "Blog de cybersécurité et writeups"
+  keywords = ["cybersécurité", "writeups", "CTF", "hacking"]
+  defaultTheme = "auto"
   
-  # Auteur
+  # Paramètres d'auteur
   [params.author]
     name = "Wheelr00t"
+    email = ""  # Complétez si vous le souhaitez
+    link = ""   # Complétez si vous le souhaitez
   
-  # Header
+  # Paramètres d'en-tête
   [params.header]
     desktopMode = "fixed"
     mobileMode = "auto"
     [params.header.title]
       name = "Wheelr00t Blog"
       pre = "<i class='fas fa-terminal'></i>"
+      typeit = false
   
-  # Home page
+  # Paramètres de la page d'accueil
   [params.home]
+    rss = 10
     [params.home.profile]
       enable = true
       title = "Wheelr00t Blog"
       subtitle = "Write-ups et cybersécurité"
+      typeit = true
+      social = true
     [params.home.posts]
       enable = true
-
-  # Page settings
+      paginate = 6
+  
+  # Paramètres de la page d'article
   [params.page]
+    hiddenFromHomePage = false
+    hiddenFromSearch = false
+    twemoji = false
+    lightgallery = false
+    ruby = true
+    fraction = true
+    fontawesome = true
+    linkToMarkdown = true
+    rssFullText = false
     [params.page.toc]
       enable = true
+      keepStatic = false
+      auto = true
     [params.page.code]
       copy = true
       maxShownLines = 50
+    [params.page.share]
+      enable = true
+      Twitter = true
+      Facebook = false
+      LinkedIn = true
+    [params.page.comment]
+      enable = false
+  
+  # Paramètres sociaux
+  [params.social]
+    GitHub = "wheelr00t"  # Remplacez par votre nom d'utilisateur GitHub
+    # Twitter = "votre_compte"  # Décommentez et remplacez si vous avez Twitter
+    # LinkedIn = "votre_compte"  # Décommentez et remplacez si vous avez LinkedIn
 
 # --- MENUS ---
 [menu]
@@ -62,10 +97,15 @@ defaultContentLanguageInSubdir = false
     url = "/tags/"
     weight = 2
   [[menu.main]]
+    identifier = "categories"
+    name = "Catégories"
+    url = "/categories/"
+    weight = 3
+  [[menu.main]]
     identifier = "about"
     name = "À Propos"
     url = "/about/"
-    weight = 3
+    weight = 4
 
 # --- TAXONOMIES ---
 [taxonomies]
@@ -79,9 +119,25 @@ defaultContentLanguageInSubdir = false
 # --- MARKUP ---
 [markup]
   [markup.highlight]
-    noClasses = false
+    codeFences = true
+    guessSyntax = true
     lineNos = true
     lineNumbersInTable = true
-    codeFences = true
-  [markup.goldmark.renderer]
-    unsafe = true
+    noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# --- PARAMÈTRES DE DÉPLOIEMENT ---
+[deployment]
+  [[deployment.targets]]
+    name = "production"
+    URL = "https://wheelr00t.github.io/wheelroot/"
