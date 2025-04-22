@@ -7,12 +7,14 @@ defaultContentLanguage = "fr"
 # Désactiver explicitement les langues CJK si non utilisées (thèmes vérifient parfois)
 hasCJKLanguage = false
 
-# --- Configuration de Langue (même pour une seule langue) ---
+defaultContentLanguage = "fr"
+defaultContentLanguageInSubdir = false
+
 [languages]
   [languages.fr]
-    languageName = "Français"
-    languageCode = "fr-fr"
     weight = 1
+    title = "Mes Write-ups de Cybersécurité"
+    languageCode = "fr-fr"
     # Les paramètres suivants sont hérités du niveau racine ([params])
     # mais on pourrait les surcharger ici si besoin pour une langue spécifique.
     # title = "Mon Titre en Français"
