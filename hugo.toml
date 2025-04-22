@@ -1,3 +1,19 @@
-theme
-=
-\LoveIt\
+# --- CONFIGURATION MINIMALE REQUISE ---
+baseURL = "https://wheelr00t.github.io/wheelroot/" # ADAPTE CECI A TON URL EXACTE (GitHub Pages ou domaine perso)
+languageCode = "fr-fr"
+title = "Antoine Garcia - WheelRoot" # METS TON TITRE ICI
+theme = "LoveIt" # Déclare le thème CORRECTEMENT
+
+# --- MINIMUM POUR QUE LE THEME NE CASSE PAS TROP (Optionnel mais recommandé) ---
+[params]
+  author = "Antoine" # METS TON NOM
+  description = "Description de mon blog" # METS UNE DESCRIPTION
+
+# --- Active les taxonomies de base (pour que les liens /tags/ et /categories/ ne cassent pas) ---
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# --- MINIMUM pour la recherche intégrée de LoveIt (si activée par défaut) ---
+[outputs]
+  home = ["HTML", "RSS", "JSON"] # Nécessaire pour la recherche
