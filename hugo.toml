@@ -1,57 +1,71 @@
 # --- CONFIGURATION DE BASE ---
-baseURL = "https://wheelr00t.github.io/wheelroot/" # VÉRIFIE ENCORE CETTE URL !
-title = "Wheelr00t - Blog Cyber" # METS TON VRAI TITRE
+baseURL = "https://wheelr00t.github.io/wheelroot/"
+title = "Wheelr00t - Blog Cyber"
 theme = "LoveIt"
-# Définir explicitement la langue par défaut (même s'il n'y en a qu'une)
-defaultContentLanguage = "fr"
-# Désactiver explicitement les langues CJK si non utilisées (thèmes vérifient parfois)
-hasCJKLanguage = false
 
+# --- CONFIGURATION DE LANGUE ---
 defaultContentLanguage = "fr"
+hasCJKLanguage = false
 defaultContentLanguageInSubdir = false
 
 [languages]
   [languages.fr]
     weight = 1
-    title = "Mes Write-ups de Cybersécurité"
+    title = "Wheelr00t - Blog Cyber"
     languageCode = "fr-fr"
-    # Les paramètres suivants sont hérités du niveau racine ([params])
-    # mais on pourrait les surcharger ici si besoin pour une langue spécifique.
-    # title = "Mon Titre en Français"
-    # [languages.fr.params]
-    #  description = "Description en Français"
 
 # --- PARAMS ---
 [params]
-  # Auteur (structure correcte)
+  # LoveIt version
+  version = "0.2.X"
+  description = "Description de mon blog cyber"
+  
+  # Auteur
   [params.author]
-    name = "Wheelr00t" # METS TON NOM/PSEUDO
-
-  description = "Description de mon blog cyber" # METS TA DESCRIPTION
-
-  # Header (structure plus complète)
+    name = "Wheelr00t"
+  
+  # Header
   [params.header]
-    desktopMode = "fixed" # ou "normal", "auto"
-    mobileMode = "auto" # ou "normal", "fixed"
+    desktopMode = "fixed"
+    mobileMode = "auto"
     [params.header.title]
-      # logo = "" # Si tu as un logo
-      name = "Wheelr00t Blog" # Texte affiché en haut
-      # pre = ""
-      # post = ""
+      name = "Wheelr00t Blog"
+      pre = "<i class='fas fa-terminal'></i>"
+  
+  # Home page
+  [params.home]
+    [params.home.profile]
+      enable = true
+      title = "Wheelr00t Blog"
+      subtitle = "Write-ups et cybersécurité"
+    [params.home.posts]
+      enable = true
 
-# --- MENUS (Ajout d'une section minimale valide) ---
+  # Page settings
+  [params.page]
+    [params.page.toc]
+      enable = true
+    [params.page.code]
+      copy = true
+      maxShownLines = 50
+
+# --- MENUS ---
 [menu]
-  # Décommente et adapte ces lignes quand tu auras du contenu
-  # [[menu.main]]
-  #   identifier = "posts"
-  #   name = "Articles"
-  #   url = "/posts/"
-  #   weight = 1
-  # [[menu.main]]
-  #   identifier = "about"
-  #   name = "À Propos"
-  #   url = "/about/"
-  #   weight = 2
+  [[menu.main]]
+    identifier = "posts"
+    name = "Articles"
+    url = "/posts/"
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    identifier = "about"
+    name = "À Propos"
+    url = "/about/"
+    weight = 3
 
 # --- TAXONOMIES ---
 [taxonomies]
@@ -66,5 +80,8 @@ defaultContentLanguageInSubdir = false
 [markup]
   [markup.highlight]
     noClasses = false
+    lineNos = true
+    lineNumbersInTable = true
+    codeFences = true
   [markup.goldmark.renderer]
     unsafe = true
